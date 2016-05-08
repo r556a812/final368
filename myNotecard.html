@@ -1,0 +1,170 @@
+<html>
+
+
+
+<head>
+	
+
+<title>MAKE YOUR OWN NOTECARDS</title>
+	
+<meta charset="UTF-8">
+
+
+
+<style>
+
+h1 {
+	
+	color: black;
+	
+	font-family: ariel;
+	
+	font-size: 300%;
+
+}
+
+p1{
+    position: relative;
+            top:100px;
+            left:400px;
+            
+        
+}
+
+p2{
+    position: relative;
+            top:200px;
+            left:400px;
+
+
+}
+
+body {
+
+        background-image:url("https://bristolcountyvet.com/wp-content/uploads/2013/10/curvy-bag-background.jpg");
+        background-repeat: no-repeat;
+        background-size: 2500px;
+
+}
+
+
+</style>
+
+
+
+</head>
+
+	
+
+
+<h1 style="text-align:center;">CREATE YOUR NOTECARDS</h1>
+	
+	
+
+<body style="background-color:lightgrey;">
+		
+    
+    <p1><textarea  name="item3" cols="50" rows="7" id="user" style="height:300px; width:500px; text-align: center; font-size:40px"></textarea>
+    <br><br>
+    <button type="button" onclick="nextCard()">Next Card</button>
+    <button type="button" onclick="getInfo()">Question/Answer</button>
+    
+    </p1>
+    
+    
+    <p2>
+    <form>
+	Question:<br>
+	<input type="text" id="q" style="width:500px;" ><br><br>
+    <button type="button" onclick="addQInfo()">SUBMIT Question</button><br><br>
+    Answer:<br>
+	<input type="text" id="a" style="width:500px;" ><br><br>
+	</form>
+	
+    <button type="button" onclick="addAInfo()">SUBMIT Answer</button>
+    </p2>
+
+
+
+
+
+<script type="text/javascript">
+
+var userArrayFront = [];
+var userArrayBack = [];
+var position = 0;
+var side = 1;
+
+function addQInfo() {
+    if (position == 0) {
+    
+        userArrayFront.push(document.getElementById("q").value);
+    
+    }
+    else if (position != (userArrayFront.length - 1)) {
+    
+        userArrayFront.push(document.getElementById("q").value);
+    
+    }
+    else {
+    
+        position++;
+        userArrayFront[position] = (document.getElementById("q").value);
+       
+    }
+}
+
+function addAInfo() {
+
+    userArrayBack[position] = (document.getElementById("a").value);
+
+}
+
+function nextCard() {
+
+    if (position >= (userArrayFront.length - 1)) {
+
+        position = 0;
+        side=1;
+        getInfo();
+    
+    }
+    else {
+
+        
+        position++;
+        side=1;
+        getInfo();
+
+    }
+
+
+
+}
+
+
+function getInfo() {
+
+    if (side == 1){
+    
+        side=0;
+        document.getElementById("user").innerHTML = userArrayFront[position];
+    
+    }
+    else {
+    
+        side=1;
+        document.getElementById("user").innerHTML = userArrayBack[position];
+    
+    }
+
+
+}
+
+</script>
+
+</body>
+
+
+</html>
+
