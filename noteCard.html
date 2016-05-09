@@ -1,0 +1,272 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <meta name="description" content="">
+
+    <meta name="author" content="">
+
+    <link rel="icon" href="../../favicon.ico">
+
+
+    <title>Theme Template for Bootstrap</title>
+
+
+    <!-- Bootstrap core CSS -->
+
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap theme -->
+
+    <link href="../../dist/css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+
+    <!-- Custom styles for this template -->
+
+    <link href="theme.css" rel="stylesheet">
+
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+
+    <!--[if lt IE 9]>
+
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+    <![endif]-->
+
+
+</head>
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <nav class="navbar navbar-default navbar-static-top">
+
+      <div class="container">
+
+        <div class="navbar-header">
+
+          <a class="navbar-brand" href="http://people.eecs.ku.edu/~hjohnson/calcStudyHomepage.html">Calculus Study Tools</a>
+
+        </div>
+
+
+        <div id="navbar" class="navbar-collapse collapse">
+
+          <ul class="nav navbar-nav">
+
+            <li class="active"><a href="http://people.eecs.ku.edu/~hjohnson/calcStudyHomepage.html">Home</a></li>
+
+            <li><a href="http://people.eecs.ku.edu/~hjohnson/calcStudyAboutpage.html">About</a></li>
+
+            <li><a href="http://people.eecs.ku.edu/~hjohnson/calcStudySurveypage.html">Survey</a></li>
+
+        </div>
+
+      </div>
+
+    </nav>
+
+    <!-- END OF NAVBAR →
+
+
+<!-- YOUR CODE HERE -->
+
+
+
+
+<head>
+	
+
+<title>MAKE YOUR OWN NOTECARDS</title>
+	
+
+
+
+<style>
+
+h1 {
+	
+	color: black;
+	
+	font-family: ariel;
+	
+	font-size: 300%;
+
+}
+
+p1{
+    position: relative;
+            top:100px;
+            left:400px;
+            
+        
+}
+
+p2{
+    position: relative;
+            top:200px;
+            left:400px;
+
+
+}
+
+body {
+
+        background-image:url("https://bristolcountyvet.com/wp-content/uploads/2013/10/curvy-bag-background.jpg");
+        background-repeat: no-repeat;
+        background-size: 2500px;
+
+}
+
+
+</style>
+
+
+
+</head>
+
+	
+
+
+<h1 style="text-align:center;">CREATE YOUR NOTECARDS</h1>
+	
+	
+
+<body style="background-color:lightgrey;">
+		
+    
+    <p1><textarea  name="item3" cols="50" rows="7" id="user" style="height:300px; width:500px; text-align: center; font-size:40px"></textarea>
+    <br><br>
+    <button type="button" onclick="nextCard()">Next Card</button>
+    <button type="button" onclick="getInfo()">Question/Answer</button>
+    
+    </p1>
+    
+    
+    <p2>
+    <form>
+	Question:<br>
+	<input type="text" id="q" style="width:500px;" ><br><br>
+    <button type="button" onclick="addQInfo()">SUBMIT Question</button><br><br>
+    Answer:<br>
+	<input type="text" id="a" style="width:500px;" ><br><br>
+	</form>
+	
+    <button type="button" onclick="addAInfo()">SUBMIT Answer</button>
+    </p2>
+
+
+
+
+
+<script type="text/javascript">
+
+var userArrayFront = [];
+var userArrayBack = [];
+var position = 0;
+var side = 1;
+
+function addQInfo() {
+    if (position == 0) {
+    
+        userArrayFront.push(document.getElementById("q").value);
+    
+    }
+    else if (position != (userArrayFront.length - 1)) {
+    
+        userArrayFront.push(document.getElementById("q").value);
+    
+    }
+    else {
+    
+        position++;
+        userArrayFront[position] = (document.getElementById("q").value);
+       
+    }
+}
+
+function addAInfo() {
+
+    userArrayBack[position] = (document.getElementById("a").value);
+
+}
+
+function nextCard() {
+
+    if (position >= (userArrayFront.length - 1)) {
+
+        position = 0;
+        side=1;
+        getInfo();
+    
+    }
+    else {
+
+        
+        position++;
+        side=1;
+        getInfo();
+
+    }
+
+
+
+}
+
+
+function getInfo() {
+
+    if (side == 1){
+    
+        side=0;
+        document.getElementById("user").innerHTML = userArrayFront[position];
+    
+    }
+    else {
+    
+        side=1;
+        document.getElementById("user").innerHTML = userArrayBack[position];
+    
+    }
+
+
+}
+
+</script>
+
+</body>
+
+
+
+</body>
+
+</html>
+
+
